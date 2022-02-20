@@ -15,6 +15,10 @@ sleep=2                             # ample time for 'hugo server' to react to c
 
 ################################################################################
 
+log() {
+    echo $( date "+%H:%M:%S" ) "$@"
+}
+
 print_environment() {
     log "# testing /tags/ updates in ${hugo_exe}"
     type "${hugo_exe}"  # which hugo
@@ -65,10 +69,6 @@ _CONFIG_
     no tags
 {{- end -}}
 _TERMS_TEMPLATE_
-}
-
-log() {
-    echo $( date "+%H:%M:%S" ) "$@"
 }
 
 restart_hugo() {
