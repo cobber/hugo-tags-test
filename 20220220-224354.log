@@ -1,0 +1,66 @@
+sh ./test_hugo_server_tags.sh
+22:43:54 # testing /tags/ updates in hugo
+hugo is /Users/steve/Development/Go/bin/hugo
+hugo v0.93.0-DEV darwin/amd64 BuildDate=unknown
+system:  Darwin tom 18.7.0 Darwin Kernel Version 18.7.0: Tue Jun 22 19:37:08 PDT 2021; root:xnu-4903.278.70~1/RELEASE_X86_64 x86_64
+
+22:43:54 # setting up new test hugo site in tags_test/
+    - config.yaml
+    - layouts/_default/terms.html
+
+22:43:54 # restarting hugo server --disableFastRender --quiet
+    Watching for changes in /Users/steve/Sites/test/tags_test/{content,layouts}
+    Environment: "development"
+    Serving pages from memory
+    Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+    Press Ctrl+C to stop
+
+22:43:56 # creating content/pages/page1 with tags: [ one, two ]
+    Source changed "/Users/steve/Sites/test/tags_test/content/pages/page1.md": WRITE
+
+22:43:58 # available tags:
+
+    no tags
+
+22:43:58 # restarting hugo server --disableFastRender --quiet
+    Watching for changes in /Users/steve/Sites/test/tags_test/{content,layouts}
+    Environment: "development"
+    Serving pages from memory
+    Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+    Press Ctrl+C to stop
+
+22:44:02 # available tags:
+
+    - one
+    - two
+
+22:44:02 # creating content/pages/page2 with tags: [ three, four ]
+    Source changed "/Users/steve/Sites/test/tags_test/content/pages/page2.md": WRITE
+
+22:44:04 # available tags:
+
+    - one
+    - two
+
+22:44:04 # creating content/pages/page3 with tags: [ five ]
+    Source changed "/Users/steve/Sites/test/tags_test/content/pages/page3.md": WRITE
+
+22:44:06 # available tags:
+
+    - one
+    - two
+
+22:44:06 # restarting hugo server --disableFastRender --quiet
+    Watching for changes in /Users/steve/Sites/test/tags_test/{content,layouts}
+    Environment: "development"
+    Serving pages from memory
+    Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+    Press Ctrl+C to stop
+
+22:44:10 # available tags:
+
+    - five
+    - four
+    - one
+    - three
+    - two
